@@ -7,8 +7,8 @@ import sys
 import random
 
 width=800
-height=780
-ppu=300
+height=700
+ppu=200
 
 x=0
 y=0
@@ -47,10 +47,11 @@ def julia(n,c):
 def main():
 	print "-----------------------------------------------"
 	r=random.uniform(-1,1)
-	print "Using ",r," as real part of c"
+	#print "Using ",r," as real part of c"
 	i=random.uniform(-1,1)
-	print "Using ",i," as imaginary part of c"
+	#print "Using ",i," as imaginary part of c"
 	c=complex(r,i)
+	print "Using ",c," as c"
 	screen=pygame.display.set_mode((width,height))
 
 	clock=pygame.time.Clock()
@@ -67,7 +68,7 @@ def main():
 		running=False
 while True:
 	main()
-    
+
 
 
 
