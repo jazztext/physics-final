@@ -42,7 +42,7 @@ while running:
 	n=0+0j
 	for y in range(0,height):
 		for x in range(0,width):
-			n=complex(x-width/2,y-height/2)
+			n=complex(x-3*width/4,y-height/2)
 			pygame.gfxdraw.pixel(screen,x,y,mandel(n/ppu))
 		pygame.display.flip()
 	clock.tick(240)

@@ -1,39 +1,69 @@
 #!/usr/bin/env python
 
+#width=0
+#height=0
+#mode="line"
+#width="1000"
+#height="750"
+#mode="line"
+
 import pygame
 import pygame.gfxdraw
 import cmath
 import sys
 import random
+import argparse
 
-width=1000
-height=750
-ppu=280
+parser=argparse.ArgumentParser(description="Julia set generator")
+
+
+#parser=OptionParser()
+#parser.set_default(width,1000)
+#parser.set_default(height,750)
+#arser.set_default(mode,"line")
+#parser.set_defualts(height=750)
+#parser.set_defaults(mode="line")
+
+parser.add_argument("-w", "--width", type=int, help="set window width to WIDTH", metavar="WIDTH", default=1000)
+parser.add_argument("-H", "--height", type=int, help="set window height to HEIGHT", metavar="HEIGHT", default=750)
+parser.add_argument("-m", "--mode", type=str, help="change mode (pixel,line,full)", metavar="MODE", default="line")
+parser.add_argument("-r", "--real", type=float, help="set real part of c", metavar="REAL", default=random.uniform(-1,1))
+parser.add_argument("-i", "--imaginary", type=float, help="set imaginary part of c", metavar="IMAG", default=random.uniform(-1,1))
+
+args=parser.parse_args()
+width=args.width
+height=args.height
+mode=args.mode
+c=complex(args.real,args.imaginary)
+
+if width>height:
+	ppu=width/2.5
+elif height>width:
+	ppu=height/2.5
+else:
+	ppu=width/2.5
 
 x=0
 y=0
 
-print "Welcome to Julia Set Generator!"
-print "Available modes: slow, medium (default), fast"
-m=raw_input("Mode: ")
-if (m=="slow"):
+if (mode=="pixel"):
 	q=1
-elif (m=="fast"):
+elif (mode=="full"):
 	q=3
 else:
 	q=2
 
-r=raw_input("Real part of c: ")
-if (r=="random"):
-	r=random.uniform(-1,1)
-	print "Using ",r," as real part of c"
+#r=raw_input("Real part of c: ")
+#if (r=="random"):
+	#r=random.uniform(-1,1)
+	#print "Using ",r," as real part of c"
 
-i=raw_input("Imaginary part of c: ")
-if (i=="random"):
-	i=random.uniform(-1,1)
-	print "Using ",i," as imaginary part of c"
+#i=raw_input("Imaginary part of c: ")
+#if (i=="random"):
+#	i=random.uniform(-1,1)
+	#print "Using ",i," as imaginary part of c"
 
-c=complex(float(r),float(i))
+#c=complex(float(r),float(i))
 
 def f(n):
 	n=n*n
@@ -56,7 +86,7 @@ def julia(n):
 		i+=1
 	return colortest(i)
 
-screen=pygame.display.set_mode((width,height))
+screen=pygame.display.set_mode((int(width),int(height)))
 clock=pygame.time.Clock()
 running=True
 
