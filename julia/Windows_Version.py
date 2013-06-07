@@ -89,7 +89,7 @@ def main():
 		for x in range(0,width):
 			n=complex(x-width/2,y-height/2)
 			pygame.gfxdraw.pixel(screen,x,y,julia(n/ppu))
-            pygame.display.flip()
+        pygame.display.flip()
 	keep()
 
 # Parts of the program that actually run!
