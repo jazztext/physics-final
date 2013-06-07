@@ -1,10 +1,14 @@
-Julia and Mandelbrot set generators
+#####################################################
+##         JULIA AND MANDELBROT SET GENERATORS     ##
+#####################################################
 
-Requirements:
-    - Python 2.5+
-    - Pygame
-    - A functioning computer
+REQUIREMENTS:
+  -Python 2.5+
+  -Pygame
 
-Redistribute, change, and use this in any way you feel necessary.
-
-Have fun!
+Just a few notes:
+  -The "Windows Version" is just the original version with lazier commenting and a few features removed. The featured had to be removed due to the lack of any sort of usable command line interface, as the only things that were really removed were command line options you can set, which were really only added so I could play around with the python libraries for that.
+  -No alternatve version was included for the mandelbrot generator because there isn't any actual input, the set it always identical. However, changing the height and width at the beginning will make the window larger, obviously, just make sure you scale "ppu" (pixels per unit) appropriately. (Usually the smaller one divided by 3.5 works the best)
+  -In any of these, changing the f(n) function (it's the first one, and the shortest) will vastly change what the sets look like. If you stick to just n^a, it julia sets will generally have "a" different poles and the mandelbrot will have "a-1" different poles. If you stray from that, I have no suggestions, but make sure you type "cmath." before any more complex function (sin,exp,etc.) Sin(n) gives you a pretty cool result.
+  -"rand.py" repeatedly makes random julia sets, using a random value between -1 and 1 for both the real and imaginary part of c.
+  -If, for some reason you use this on a system with a usable command line, "julia.py -h" gives more information about the various options
